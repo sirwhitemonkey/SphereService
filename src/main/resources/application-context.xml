@@ -31,6 +31,7 @@
 		<property name="password" value="" />
 		<property name="initialSize" value="8" />
 		<property name="maxActive" value="20" />
+		<property name="maxTotal" value="20" />
 		<property name="maxIdle" value="5" />
 		<property name="minIdle" value="0" />
 		<property name="maxWait" value="5000" />
