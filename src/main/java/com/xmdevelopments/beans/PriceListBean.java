@@ -12,12 +12,9 @@ import org.springframework.http.HttpStatus;
 
 import com.xmdevelopments.model.Response;
 import com.xmdevelopments.model.ResponseError;
-import com.xmdevelopments.model.entities.Customer;
 import com.xmdevelopments.model.entities.PriceList;
 import com.xmdevelopments.pages.Pages;
-import com.xmdevelopments.repositories.CustomerRepository;
 import com.xmdevelopments.repositories.PriceListRepository;
-import com.xmdevelopments.services.CustomerService;
 import com.xmdevelopments.services.PriceListService;
 
 /**
@@ -56,7 +53,7 @@ public class PriceListBean implements PriceListService {
 			responseError.setMessage(ex.getMessage());
 			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
 			response.setData(responseError);
-			logger.error(prefix + "->" + ex);
+			logger.error(prefix , ex);
 		}
 		return response;
 	}
@@ -86,7 +83,7 @@ public class PriceListBean implements PriceListService {
 			responseError.setMessage(ex.getMessage());
 			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
 			response.setData(responseError);
-			logger.error(prefix + "->" + ex);
+			logger.error(prefix , ex);
 		}
 		return response;
 	}

@@ -27,7 +27,8 @@ public class AuthBean implements AuthService {
 	@Override
 	public Response submit() {
 		String prefix = " submit()";
-	
+		logger.info(prefix + "->called");
+		
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
@@ -40,7 +41,7 @@ public class AuthBean implements AuthService {
 			responseError.setMessage(ex.getMessage());
 			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
 			response.setData(responseError);
-			logger.error(prefix + "->" + ex);
+			logger.error(prefix,ex);
 		}
 		return response;
 	}

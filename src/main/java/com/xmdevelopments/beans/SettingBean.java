@@ -47,7 +47,7 @@ public class SettingBean implements SettingService {
 			responseError.setMessage(ex.getMessage());
 			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
 			response.setData(responseError);
-			logger.error(prefix + "->" + ex);
+			logger.error(prefix , ex);
 		}
 		return response;
 	}
@@ -74,7 +74,7 @@ public class SettingBean implements SettingService {
 			responseError.setMessage(ex.getMessage());
 			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
 			response.setData(responseError);
-			logger.error(prefix + "->" + ex);
+			logger.error(prefix , ex);
 		}
 		return response;
 	}

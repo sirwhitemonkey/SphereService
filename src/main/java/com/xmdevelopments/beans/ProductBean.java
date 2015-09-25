@@ -51,7 +51,7 @@ public class ProductBean implements ProductService {
 			responseError.setMessage(ex.getMessage());
 			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
 			response.setData(responseError);
-			logger.error(prefix + "->" + ex);
+			logger.error(prefix , ex);
 		}
 
 		return response;
