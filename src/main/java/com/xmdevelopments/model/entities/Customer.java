@@ -44,7 +44,7 @@ public class Customer {
     private String status;
     
     @Column(name="arcus_customers_currency_used")
-    private String curreny;        
+    private String currency;        
     
     @Column(name="arcus_customers_customer_group")
     private String group;
@@ -132,12 +132,12 @@ public class Customer {
 		this.status = status;
 	}
 
-	public String getCurreny() {
-		return curreny;
+	public String getCurrency() {
+		return currency;
 	}
 
-	public void setCurreny(String curreny) {
-		this.curreny = curreny;
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
 	public String getGroup() {
@@ -155,6 +155,4 @@ public class Customer {
 	public void setTaxGroup(String taxGroup) {
 		this.taxGroup = taxGroup;
 	}
-    
-    
 }

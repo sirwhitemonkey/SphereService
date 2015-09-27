@@ -51,9 +51,9 @@ public class UserBean implements UserService {
 			}
 			response.setData(user);
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(prefix , ex);
 		}
@@ -81,9 +81,9 @@ public class UserBean implements UserService {
 			}
 			response.setData(new Pages(users));
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(prefix , ex);
 		}

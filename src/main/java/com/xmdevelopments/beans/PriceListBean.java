@@ -49,9 +49,9 @@ public class PriceListBean implements PriceListService {
 			}
 			response.setData(new Pages(priceLists));
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(prefix , ex);
 		}
@@ -63,15 +63,14 @@ public class PriceListBean implements PriceListService {
 	 * @see com.xmdevelopments.services.PriceListService#getPriceLists(int, int, int)
 	 */
 	@Override
-	public Response getPriceLists(String priceListCode, int page, int limit) {
+	public Response getPriceLists(String code, int page, int limit) {
 		String prefix = "getPriceLists()";
-		logger.info(prefix + "->[params]:" + "," + priceListCode + "," + page + "," + limit);
+		logger.info(prefix + "->[params]:" + "," + code + "," + page + "," + limit);
 
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
-			Page<PriceList> priceLists = priceListRepository.findByPriceListCode(priceListCode,
-					new PageRequest(page, limit));
+			Page<PriceList> priceLists = priceListRepository.findByCode(code, new PageRequest(page, limit));
 			if (priceLists.getTotalElements() > 0) {
 				response.setResponseCode(HttpStatus.OK.value());
 			} else {
@@ -79,9 +78,9 @@ public class PriceListBean implements PriceListService {
 			}
 			response.setData(new Pages(priceLists));
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(prefix , ex);
 		}

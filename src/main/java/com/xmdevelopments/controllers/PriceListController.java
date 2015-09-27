@@ -40,25 +40,25 @@ public class PriceListController {
 		try {
 			response = priceListFactory.getPriceLists(page, limit);
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(ex);
 		}
 		return response;
 	}
 	
-	public Response getPriceLists(String priceListCode, int page, int limit) {
+	public Response getPriceLists(String code, int page, int limit) {
 		logger.info("getPriceLists()->called");
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
-			response = priceListFactory.getPriceLists(priceListCode,page, limit);
+			response = priceListFactory.getPriceLists(code,page, limit);
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(ex);
 		}

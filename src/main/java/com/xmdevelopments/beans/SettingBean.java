@@ -32,6 +32,7 @@ public class SettingBean implements SettingService {
 	@Override
 	public Response getThemes() {
 		String prefix = " getThemes()";
+		logger.info(prefix + "->called");
 
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
@@ -43,9 +44,9 @@ public class SettingBean implements SettingService {
 			JsonNode jsonNode = mapper.readTree( getClass().getResourceAsStream("/mock/themes.json"));
 			response.setData(jsonNode);
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(prefix , ex);
 		}
@@ -60,6 +61,7 @@ public class SettingBean implements SettingService {
 	public Response getDataDefaults() {
 		String prefix = " getDataDefaults()";
 
+		logger.info(prefix + "->called");
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
@@ -70,15 +72,25 @@ public class SettingBean implements SettingService {
 			JsonNode jsonNode = mapper.readTree( getClass().getResourceAsStream("/mock/dataDefaults.json"));
 			response.setData(jsonNode);
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(prefix , ex);
 		}
 		return response;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see com.xmdevelopments.services.SettingService#checkConnection()
+	 */
+	@Override
+	public Response checkConnection() {
+		logger.info("checkConnection()->called");
+		Response response = new Response("", HttpStatus.OK.value());
+		return response;
+	}
 	
 	
 }

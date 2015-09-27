@@ -44,9 +44,9 @@ public class SettingFactory {
 		try {
 			response = settingService.getThemes();
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(ex);
 		}
@@ -60,9 +60,25 @@ public class SettingFactory {
 		try {
 			response = settingService.getDataDefaults();
 		} catch (Exception ex) {
-			response.setResponseCode(HttpStatus.EXPECTATION_FAILED.value());
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
-			responseError.setErrorCode(String.valueOf(HttpStatus.EXPECTATION_FAILED.value()));
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
+			response.setData(responseError);
+			logger.error(ex);
+		}
+		return response;
+	}
+	
+	public Response checkConnection() {
+		logger.info("checkConnection()->called");
+		Response response = new Response();
+		ResponseError responseError = new ResponseError();
+		try {
+			response = settingService.checkConnection();
+		} catch (Exception ex) {
+			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+			responseError.setMessage(ex.getMessage());
+			responseError.setErrorCode(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
 			response.setData(responseError);
 			logger.error(ex);
 		}

@@ -33,8 +33,8 @@ public class Product {
     private String products_category;
     @JsonIgnore
     private BigDecimal products_unitwgt;
-    @JsonIgnore
-    private String products_stockunit;
+    @Column(name="products_stockunit")
+    private String stockunit;
     @JsonIgnore
     private String products_weightunit;
     @Column(name="products_inactive", columnDefinition = "BIT", length = 1)
@@ -158,11 +158,11 @@ public class Product {
 	public void setProducts_unitwgt(BigDecimal products_unitwgt) {
 		this.products_unitwgt = products_unitwgt;
 	}
-	public String getProducts_stockunit() {
-		return products_stockunit;
+	public String getStockunit() {
+		return stockunit;
 	}
-	public void setProducts_stockunit(String products_stockunit) {
-		this.products_stockunit = products_stockunit;
+	public void setStockunit(String stockunit) {
+		this.stockunit = stockunit;
 	}
 	public String getProducts_weightunit() {
 		return products_weightunit;
@@ -416,7 +416,6 @@ public class Product {
 	public void setProducts_vacitm_2(String products_vacitm_2) {
 		this.products_vacitm_2 = products_vacitm_2;
 	}
-    
 	
     
  }

@@ -9,5 +9,5 @@ import com.xmdevelopments.model.entities.PriceList;
 @Repository
 public interface PriceListRepository extends CrudRepository<PriceList, Long> {
     Page<PriceList> findAll(Pageable pagable);
-    Page<PriceList> findByPriceListCode(String priceListCode,Pageable pageable);
+    Page<PriceList> findByCode(String code,Pageable pageable);
 }
