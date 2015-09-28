@@ -30,7 +30,7 @@ public class Product {
     @JsonIgnore
     private BigDecimal products_unitwgt;
     @Column(name="products_stockunit")
-    private String stockunit;
+    private String stockUnit;
     @JsonIgnore
     private String products_weightunit;
     @Column(name="products_inactive", columnDefinition = "BIT", length = 1)
@@ -154,11 +154,11 @@ public class Product {
 	public void setProducts_unitwgt(BigDecimal products_unitwgt) {
 		this.products_unitwgt = products_unitwgt;
 	}
-	public String getStockunit() {
-		return stockunit;
+	public String getStockUnit() {
+		return stockUnit;
 	}
-	public void setStockunit(String stockunit) {
-		this.stockunit = stockunit;
+	public void setStockUnit(String stockUnit) {
+		this.stockUnit = stockUnit;
 	}
 	public String getProducts_weightunit() {
 		return products_weightunit;
