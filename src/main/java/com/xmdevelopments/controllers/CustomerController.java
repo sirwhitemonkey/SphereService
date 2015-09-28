@@ -33,12 +33,12 @@ public class CustomerController {
 		logger.info("<CustomerController>initialised");
 	}
 
-	public Response getCustomers(int page, int limit) {
+	public Response getCustomers(String date_last_updated, int page, int limit) {
 		logger.info("getCustomers()->called");
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
-			response = customerFactory.getCustomers(page, limit);
+			response = customerFactory.getCustomers(date_last_updated, page, limit);
 		} catch (Exception ex) {
 			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());

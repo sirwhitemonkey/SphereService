@@ -34,9 +34,9 @@ public class PriceListBean implements PriceListService {
 	 * @see com.xmdevelopments.services.PriceListService#getPriceLists(int, int)
 	 */
 	@Override
-	public Response getPriceLists(int page, int limit) {
+	public Response getPriceLists(String date_last_updated, int page, int limit) {
 		String prefix = "getPriceLists()";
-		logger.info(prefix + "->[params]:" + "," + page + "," + limit);
+		logger.info(prefix + "->[params]:" + date_last_updated + "," + page + "," + limit);
 
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
@@ -63,7 +63,7 @@ public class PriceListBean implements PriceListService {
 	 * @see com.xmdevelopments.services.PriceListService#getPriceLists(int, int, int)
 	 */
 	@Override
-	public Response getPriceLists(String code, int page, int limit) {
+	public Response getPriceLists(String date_last_updated, String code, int page, int limit) {
 		String prefix = "getPriceLists()";
 		logger.info(prefix + "->[params]:" + "," + code + "," + page + "," + limit);
 

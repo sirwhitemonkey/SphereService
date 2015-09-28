@@ -31,12 +31,12 @@ public class CustomerBean implements CustomerService {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.xmdevelopments.services.CustomerService#getCustomers(int, int)
+	 * @see com.xmdevelopments.services.CustomerService#getCustomers(java.lang.String, int, int)
 	 */
 	@Override
-	public Response getCustomers(int page, int limit) {
+	public Response getCustomers(String date_last_updated, int page, int limit) {
 		String prefix = "getCustomers()";
-		logger.info(prefix + "->[params]:" + "," + page + "," + limit);
+		logger.info(prefix + "->[params]:" +  date_last_updated + "," + page + "," + limit);
 
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();

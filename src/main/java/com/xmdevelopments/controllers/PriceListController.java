@@ -33,12 +33,12 @@ public class PriceListController {
 		logger.info("<PriceListController>initialised");
 	}
 
-	public Response getPriceLists(int page, int limit) {
+	public Response getPriceLists(String date_last_updated, int page, int limit) {
 		logger.info("getPriceLists()->called");
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
-			response = priceListFactory.getPriceLists(page, limit);
+			response = priceListFactory.getPriceLists(date_last_updated, page, limit);
 		} catch (Exception ex) {
 			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
@@ -49,12 +49,12 @@ public class PriceListController {
 		return response;
 	}
 	
-	public Response getPriceLists(String code, int page, int limit) {
+	public Response getPriceLists(String date_last_updated, String code, int page, int limit) {
 		logger.info("getPriceLists()->called");
 		Response response = new Response();
 		ResponseError responseError = new ResponseError();
 		try {
-			response = priceListFactory.getPriceLists(code,page, limit);
+			response = priceListFactory.getPriceLists(date_last_updated, code,page, limit);
 		} catch (Exception ex) {
 			response.setResponseCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 			responseError.setMessage(ex.getMessage());
