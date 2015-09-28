@@ -11,10 +11,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-/**
- * Entity mapping {table=products} 
- *
- */
 @Entity
 @Table(name="products")
 public class Product {
